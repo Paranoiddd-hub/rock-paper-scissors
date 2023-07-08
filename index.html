@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice () {
+            const random = Math.random();
+            let choice = 'nochoice';
+            if (random < 0.33) {
+                choice = 'rock';
+            } else if (random < 0.66) {
+                choice = 'paper';
+            } else {
+                choice = 'scissors';
+            }
+            return choice;
+        }
+
+        function playRound (playerSelection, computerSelection) {
+            switch (playerSelection) {
+                case 'rock':
+                    if (computerSelection === 'paper') {
+                        return 'You Lose! Paper beats Rock';
+                    } else if (computerSelection === 'scissors') {
+                        return 'You Win! Rock beats Scissors';
+                    } else return 'It\'s a tie!';
+                    break;
+                case 'paper':
+                if (computerSelection === 'paper') {
+                        return 'It\'s a tie!';
+                    } else if (computerSelection === 'scissors') {
+                        return 'You Lose! Scissors beats Paper';
+                    } else return 'You Win! Paper beats Rock';
+                    break;
+                case 'scissors':
+                if (computerSelection === 'paper') {
+                        return 'You Win! Scissors beats Paper';
+                    } else if (computerSelection === 'scissors') {
+                        return 'It\'s a tie!';
+                    } else return 'You Lose! Rock beats Scissors';
+                    break;
+            }
+        }
+
+        function game () {
+            let playerScore = 0;
+            let computerScore = 0;
+            let round = "";
+            for (let i=0; i < 5; i++) {
+                round = playRound(prompt('Enter your choice please:').toLowerCase(), getComputerChoice());
+                if (round.slice(4,5) === 'L') {
+                    computerScore++;
+                } else if (round.slice(4,5) === 'W') {
+                    playerScore++;
+                }
+            console.log(playerScore + ':' + computerScore);
+            }
+            if (playerScore > computerScore) {
+                console.log('You are a winner!')
+            } else if (playerScore < computerScore) {
+                console.log ('You are a loser!')
+            } else console.log ('It\'s a tie!')
+        }
+
+        game ();
+      
+        
+    </script>
+</body>
+</html>
