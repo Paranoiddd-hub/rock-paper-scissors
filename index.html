@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="author" content="Aidar">
+    <meta name="description" content="Rock, Paper, Scissors Game.">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div id="main_block">
+    <img id="image_header" src="./img/header_rps.jpg" alt="Rock, paper, scissors game image"/>
+    <div id="buttons">
+        <button class="button">Rock</button>
+        <button class="button">Paper</button>
+        <button class="button">Scissors</button>
+    </div>
+    
+    </div>
+
     <script>
 
         function getComputerChoice () {
@@ -22,6 +35,8 @@
 
         function playRound (playerSelection, computerSelection) {
             switch (playerSelection) {
+                case 'null':
+                    return;
                 case 'rock':
                     if (computerSelection === 'paper') {
                         return 'You Lose! Paper beats Rock';
