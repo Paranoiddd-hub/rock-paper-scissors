@@ -14,7 +14,7 @@ function getComputerChoice() {
 function printText (target, message, index) {   
     if (index < message.length) {
         target.append(message[index++]);
-        setTimeout(() => {printText(target, message, index)}, 30);
+        setTimeout(() => {printText(target, message, index)}, 5);
     }
   }
 
