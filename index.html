@@ -5,85 +5,35 @@
     <meta name="author" content="Aidar">
     <meta name="description" content="Rock, Paper, Scissors Game.">
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
     <title>Rock Paper Scissors</title>
+    <!-- <link href="https://fonts.cdnfonts.com/css/murder-block" rel="stylesheet"> -->
 </head>
 <body>
     <div id="main_block">
-    <img id="image_header" src="./img/header_rps.jpg" alt="Rock, paper, scissors game image"/>
-    <div id="buttons">
-        <button class="button">Rock</button>
-        <button class="button">Paper</button>
-        <button class="button">Scissors</button>
-    </div>
+        <img id="image_header" src="./img/header_rps.jpg" alt="Rock, paper, scissors game image"/>
+        <p id="text">This is a simple "Rock, Paper, Scissors" game. 
+            Try to win using these three option.
+            Game lasts up to five points.</p>
+        <div id="buttons">
+            <button id="rock" class="button">Rock</button>
+            <button id="paper" class="button">Paper</button>
+            <button id="scissors" class="button">Scissors</button>
+        </div>
+        <div id="explanation"></div>
+        <div id="versus">
+            <div class="players_boxes">
+                <span id="player_counter">?</span>
+                <p id="player_caption">Player: 0</p>
+            </div>
+            <img style="width: 16vw;" src="./img/versus.png"/>
+            <div class="players_boxes">
+                <span id="computer_counter">?</span>
+                <p id="computer_caption">Computer: 0</p>
+            </div>
+        </div>
+        <div id="footer"><span>Copyright © 2023 Aidar</span></div>
     
     </div>
-
-    <script>
-
-        function getComputerChoice () {
-            const random = Math.random();
-            let choice = 'nochoice';
-            if (random < 0.33) {
-                choice = 'rock';
-            } else if (random < 0.66) {
-                choice = 'paper';
-            } else {
-                choice = 'scissors';
-            }
-            return choice;
-        }
-
-        function playRound (playerSelection, computerSelection) {
-            switch (playerSelection) {
-                case 'null':
-                    return;
-                case 'rock':
-                    if (computerSelection === 'paper') {
-                        return 'You Lose! Paper beats Rock';
-                    } else if (computerSelection === 'scissors') {
-                        return 'You Win! Rock beats Scissors';
-                    } else return 'It\'s a tie!';
-                    break;
-                case 'paper':
-                if (computerSelection === 'paper') {
-                        return 'It\'s a tie!';
-                    } else if (computerSelection === 'scissors') {
-                        return 'You Lose! Scissors beats Paper';
-                    } else return 'You Win! Paper beats Rock';
-                    break;
-                case 'scissors':
-                if (computerSelection === 'paper') {
-                        return 'You Win! Scissors beats Paper';
-                    } else if (computerSelection === 'scissors') {
-                        return 'It\'s a tie!';
-                    } else return 'You Lose! Rock beats Scissors';
-                    break;
-            }
-        }
-
-        function game () {
-            let playerScore = 0;
-            let computerScore = 0;
-            let round = "";
-            for (let i=0; i < 5; i++) {
-                round = playRound(prompt('Enter your choice please:').toLowerCase(), getComputerChoice());
-                if (round.slice(4,5) === 'L') {
-                    computerScore++;
-                } else if (round.slice(4,5) === 'W') {
-                    playerScore++;
-                }
-            console.log(playerScore + ':' + computerScore);
-            }
-            if (playerScore > computerScore) {
-                console.log('You are a winner!')
-            } else if (playerScore < computerScore) {
-                console.log ('You are a loser!')
-            } else console.log ('It\'s a tie!')
-        }
-
-        game ();
-      
-        
-    </script>
 </body>
 </html>
