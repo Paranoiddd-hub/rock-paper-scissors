@@ -1,19 +1,22 @@
 body {
     padding: 0;
     margin: 0;
+    min-height: 100%;
     display: flex;
     box-sizing: border-box;
     justify-content: center;
     background-color: rgb(196, 158, 231);
-    /*font-family: 'Murder Block', sans-serif;*/
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    height: 100%;
+}
 
 #main_block {
     display: flex;
     width: 80vw;
-    height: 100vh;
+    /* height: 100vh; */
     flex-direction: column;
     align-items: center;
     background-color: rgb(94, 18, 165);
@@ -71,7 +74,7 @@ body {
 #versus {
     display: flex;
     align-items: flex-start;
-    gap: 4vw;
+    gap: 4vh;
     flex-grow: 1;
 }
 
@@ -90,7 +93,3 @@ body {
     width: 16vw;
 }
 
-#footer {
-    
-    
-}
